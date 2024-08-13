@@ -60,10 +60,10 @@
                                                         <a href="{{ route('delete.team.member', $item->id) }}" class="btn btn-danger rounded-pill waves-effect waves-light" id="delete">Delete</a>
                                                         
                                                         @if($item->status == 1)
-                                                        <a href="#" class="btn btn-secondary rounded-pill waves-effect waves-light" title="Inactive"><i class="fa-solid fa-thumbs-down"></i></a>
+                                                        <a href="{{ route('inactive.team.member', $item->id)}}" class="btn btn-secondary rounded-pill waves-effect waves-light" title="Inactive"><i class="fa-solid fa-thumbs-down"></i></a>
 
                                                         @else
-                                                        <a href="#" class="btn btn-secondary rounded-pill waves-effect waves-light" title="Active"><i class="fa-solid fa-thumbs-up"></i></a>
+                                                        <a href="{{ route('active.team.member', $item->id)}}" class="btn btn-secondary rounded-pill waves-effect waves-light" title="Active"><i class="fa-solid fa-thumbs-up"></i></a>
 
                                                         @endif
 

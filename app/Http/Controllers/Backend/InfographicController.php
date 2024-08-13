@@ -25,7 +25,7 @@ class InfographicController extends Controller
             $img = $manager->read($request->file('infographic_image'));
             
             $img->save(public_path('/upload/infographic/'.$name_gen));
-            $save_url = '/upload/infographic/'.$name_gen;
+            $save_url = 'upload/infographic/'.$name_gen;
 
             Infographic::findOrFail($infographic_id)->update([
                 'infographic_image' => $save_url,

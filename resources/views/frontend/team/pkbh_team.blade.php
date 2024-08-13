@@ -33,62 +33,30 @@ $aboutus = App\Models\AboutUs::find(1);
 <hr class="hr_team">
 </div>
 
+@php
+$team_list = App\Models\TeamMember::where('status',1)->get();
+@endphp
+
 <!-- Team 1 - Bootstrap Brain Component -->
 <section class="py-3 py-md-5 py-xl-8">
     <div class="container overflow-hidden">
     <div class="row gy-4 gy-lg-0 gx-xxl-5">
-      <div class="col-12 col-md-6 col-lg-3">
+      
+    @foreach($team_list as $list)
+    <div class="col-12 col-md-6 col-lg-3">
         <div class="card border-0 border-bottom border-primary shadow-sm overflow-hidden">
           <div class="card-body p-0">
             <figure class="m-0 p-0">
-              <img class="img-fluid" loading="lazy" src="{{asset('frontend/assets/images/profile_photo.png')}}" alt="Flora Nyra">
+              <img class="img-fluid" loading="lazy" src="{{asset($list->photo)}}" alt="Flora Nyra">
               <figcaption class="m-0 p-4">
-                <h5 class="mb-1"> Dr. Muhammad Aswan, S.H., M.kn.</h5>
-                <p class="text-secondary mb-0">Kepala PKBH Unhas</p>
+                <h5 class="mb-1"> {{ $list->name }}</h5>
+                <p class="text-secondary mb-0">{{ $list->department }}</p>
               </figcaption>
             </figure>
           </div>
         </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="card border-0 border-bottom border-primary shadow-sm overflow-hidden">
-          <div class="card-body p-0">
-            <figure class="m-0 p-0">
-              <img class="img-fluid" loading="lazy" src="{{asset('frontend/assets/images/profile_photo.png')}}" alt="Evander Mac">
-              <figcaption class="m-0 p-4">
-                <h5 class="mb-1">Hadi Shafitra</h5>
-                <p class="text-secondary mb-0">Publikasi</p>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="card border-0 border-bottom border-primary shadow-sm overflow-hidden">
-          <div class="card-body p-0">
-            <figure class="m-0 p-0">
-              <img class="img-fluid" loading="lazy" src="{{asset('frontend/assets/images/profile_photo.png')}}" alt="Taytum Elia">
-              <figcaption class="m-0 p-4">
-                <h5 class="mb-1">Ikhsan</h5>
-                <p class="text-secondary mb-0">Administrasi</p>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="card border-0 border-bottom border-primary shadow-sm overflow-hidden">
-          <div class="card-body p-0">
-            <figure class="m-0 p-0">
-              <img class="img-fluid" loading="lazy" src="{{asset('frontend/assets/images/profile_photo.png')}}" alt="Wylder Elio">
-              <figcaption class="m-0 p-4">
-                <h5 class="mb-1">Ilham</h5>
-                <p class="text-secondary mb-0">Paralegal</p>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
+    </div>
+    @endforeach
       
     </div>
   </div>

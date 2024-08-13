@@ -22,7 +22,7 @@ class AboutUsController extends Controller
             $img = $manager->read($request->file('team_photo'));
             
             $img->save(public_path('/upload/about_us_image/'.$name_gen));
-            $save_url = '/upload/about_us_image/'.$name_gen;
+            $save_url = 'upload/about_us_image/'.$name_gen;
 
             AboutUs::findOrFail($aboutus_id)->update([
                 'team_photo' => $save_url,

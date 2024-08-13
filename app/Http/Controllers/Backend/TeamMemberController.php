@@ -112,4 +112,28 @@ class TeamMemberController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+
+    public function InactiveTeamMember($id){
+        TeamMember::findOrFail($id)->update(['status' => 0]);
+
+        $notification = array(
+            'message' => 'Data Anggota dinonaktifkan dari website',
+            'alert-type' => 'info'
+
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+    public function ActiveTeamMember($id){
+        TeamMember::findOrFail($id)->update(['status' => 1]);
+
+        $notification = array(
+            'message' => 'Data Anggota diaktifkan ke website',
+            'alert-type' => 'info'
+
+        );
+
+        return redirect()->back()->with($notification);
+    }
 }

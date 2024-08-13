@@ -24,7 +24,7 @@ class HomepageImgController extends Controller
             $img = $manager->read($request->file('top'));
             
             $img->save(public_path('/upload/homepageimg/'.$name_gen));
-            $save_url = '/upload/homepageimg/'.$name_gen;
+            $save_url = 'upload/homepageimg/'.$name_gen;
 
             HomepageImg::findOrFail($homepageimg_id)->update([
                 'top' => $save_url,

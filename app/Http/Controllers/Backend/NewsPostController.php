@@ -36,7 +36,7 @@ class NewsPostController extends Controller
             $img = $img->resize(784, 436);
 
             $img->save(public_path('/upload/news/'.$name_gen));
-            $save_url = '/upload/news/'.$name_gen;
+            $save_url = 'upload/news/'.$name_gen;
 
             NewsPost::insert([
                 'category_id' => $request->category_id,
