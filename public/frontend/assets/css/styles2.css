@@ -10837,7 +10837,7 @@ p {
 }
 
 .page-section {
-  padding: 2rem 0 6rem 0;
+  padding: 2rem 0 1.5rem 0;
   margin-top: 50px;
 }
 .page-section h2.section-heading, .page-section .section-heading.h2 {
@@ -10942,6 +10942,8 @@ p {
     margin-right: 0;
   }
 }
+
+
 header.masthead {
   padding-top: 10.5rem;
   padding-bottom: 6rem;
@@ -11336,7 +11338,7 @@ section#contact form#contactForm :-ms-input-placeholder {
 .news_second_section_h2{
   padding-bottom: 2%;
   margin-bottom: 0;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .lazyload {
@@ -11448,6 +11450,7 @@ section#contact form#contactForm :-ms-input-placeholder {
   width: 100%;
   margin-left: 25px;
   margin-right: 25px;
+  border-radius: 10px;
 }
 
 .h3_client{
@@ -11468,7 +11471,7 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 .form-container {
   width: 60%;
-  margin: 50px auto;
+  margin: 20px auto;
   background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
@@ -11528,7 +11531,7 @@ button {
 }
 
 #consultation{
-  padding: 0.5rem 0 0 0;
+  padding: 2rem 0 0 0;
 }
 
 .footer {
@@ -11579,6 +11582,7 @@ button {
 
 .other_news_details{
   margin-bottom: 4%;
+  margin-top: 1rem;
 }
 
 .news_content{
@@ -11597,4 +11601,44 @@ button {
 .error_page{
   margin-top: 40px;
   margin-bottom: 345px;
+}
+
+.all_news, .team_container, .client_container{
+  margin-top: 10%;
+}
+
+.title-all-news{
+  margin-bottom: 30px;
+}
+
+.news_date{
+  margin:0;
+  overflow:hidden;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.news_more {
+  font-weight: 300;
+}
+
+.title_konsultasi{
+  display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically (optional) */
+    height: 100%;  
+}
+
+.more_news_title_news_detail > a{
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.other_news_container{
+  margin-top: 1rem;
+}
+
+#showImage_infographic {
+  border-radius: 10px;
 }

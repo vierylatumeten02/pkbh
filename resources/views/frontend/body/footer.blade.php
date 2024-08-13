@@ -9,9 +9,9 @@
                 <p>Business:</p>
                 <p>info@thinkingroominc.com</p>
                 <p>+6221 255 585 96 / +62 8111359780</p>
-                <p>© Pusat Konsultasi & Bantuan Hukum © Universitas Hasanuddin</p>
+                <p>Bantuan Hukum Universitas Hasanuddin &copy; <script>document.write(new Date().getFullYear())</script></p>
             </div>
         </div>
 
-        <a href=" " class="scrollToTop" style=""><i class="las la-long-arrow-alt-up"></i></a>
+        <a href=" " class="scrollToTop"><i class="las la-long-arrow-alt-up"></i></a>
     </footer>

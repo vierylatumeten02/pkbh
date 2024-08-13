@@ -3,12 +3,17 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\AboutUsController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\HomepageImgController;
 use App\Http\Controllers\Backend\NewsPostController;
 use App\Http\Controllers\Backend\SeoSettingController;
+use App\Http\Controllers\Backend\InfographicController;
+use App\Http\Controllers\Backend\TeamMemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -114,10 +119,52 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('/inactive/news/post/{id}','InactiveNewsPost')->name('inactive.news.post');
         Route::get('/active/news/post/{id}','ActiveNewsPost')->name('active.news.post');
     });
-    
+
+    //Contact Controller
+    Route::controller(ContactController::class)->group(function () {
+        Route::get('/contact', 'Contact')->name('contact.me');
+        Route::post('/store/message', 'StoreMessage')->name('store.message');
+        Route::get('/contact/message', 'ContactMessage')->name('contact.message');
+        Route::get('/delete/message/{id}', 'DeleteMessage')->name('delete.message');
+    });
+
+    //Infographic Controller
+    Route::controller(InfographicController::class)->group(function () {
+        Route::get('/all/infographics', 'AllInfographics')->name('all.infographics');
+        Route::post('/update/infographics', 'UpdateInfographics')->name('update.infographics');
+    });
+
+    //HomapageImg Controller
+    Route::controller(HomepageImgController::class)->group(function () {
+        Route::get('/all/homepageimg', 'AllHomepageImg')->name('all.homepageimg');
+        Route::post('/update/homepageimg', 'UpdateHomepageImg')->name('update.homepageimg');
+    });
+
+    // About Us Controller
+    Route::controller(AboutUsController::class)->group(function(){
+        Route::get('/all/aboutus', 'AllAboutUs')->name('all.aboutus');
+        Route::post('/update/aboutus', 'UpdateAboutUs')->name('update.aboutus');
+    });
+
+    // Team Member Controller
+    Route::controller(TeamMemberController::class)->group(function(){
+
+        Route::get('/all/team/','AllTeamMember')->name('all.team.member');
+        Route::get('/add/team/','AddTeamMember')->name('add.team.member');
+
+        Route::post('/store/team','StoreTeamMember')->name('store.team.member');
+        Route::get('/edit/team/{id}','EditTeamMember')->name('edit.team.member');
+        Route::post('/update/team','UpdateTeamMember')->name('update.team.member');
+        Route::get('/delete/team/{id}','DeleteTeamMember')->name('delete.team.member');
+        Route::get('/delete/team/{id}','DeleteTeamMember')->name('delete.team.member');
+
+        Route::get('/inactive/news/post/{id}','InactiveNewsPost')->name('inactive.news.post');
+        Route::get('/active/news/post/{id}','ActiveNewsPost')->name('active.news.post');
+    });
 });
 
     //Access for All
+    Route::get('/news', [IndexController::class, 'AllNewsShow']);
     Route::get('/news/details/{id}/{slug}', [IndexController::class, 'NewsDetails']);
     Route::get('/news/category/{id}/{slug}', [IndexController::class, 'CatWiseNews']);
     Route::get('/news/subcategory/{id}/{slug}', [IndexController::class, 'SubCatWiseNews']);
@@ -132,4 +179,11 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::post('/search', [IndexController::class, 'SearchByDate'])->name('search-by-date');
     Route::post('/news', [IndexController::class, 'NewsSearch'])->name('news.search');
 
+    //Tim PKBH
+    Route::get('/team', [IndexController::class, 'PKBHTeam']);
+
+    //Client
+    Route::get('/client', [IndexController::class, 'ClientList']);
+
+    
     

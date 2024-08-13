@@ -139,24 +139,29 @@
 	transition: .5s all;
 }
 
+
+
 .secOne-title2 a {
 	color: #000000;
 	font-size: 16px;	
+	font-weight: 500;
 	display:inline-block
 
 }
 
 .secOne_smallTitle a {
 	color: #000000;
-	font-size: 16px;	
+	font-size: 20px;	
 	display: inline-block;
 	transition: .5s all;
+	font-weight: 500;
 }
 
 .section-two {
 	background: #121212;
 	margin: 10px 0 0;
 	padding: 50px 0;
+	border-radius: 10px;
 }
 
 .sec-two-title a {
@@ -556,12 +561,11 @@ a:hover {
 
 
 .themesBazar_cat01 {
-	background: #EFF3F6;
 	color: #000000;
-	font-size: 20px;
 	padding: 10px 8px;
+	font-weight: 400;
 	margin-bottom: 10px;
-	border-left: 4px solid #0B3262;
+	font-size: 20px;
 }
 .themesBazar_cat01 a {
 	color: #000000;
@@ -572,10 +576,12 @@ a:hover {
 }
 .themesBazar_cat01 > span > a {
 	background: transparent;
-	font-size: 90%;
+	font-size: 80%;
+	
 }
 .themesBazar_cat01 a:hover {
 	opacity: .9;
+	color: #D9353A;
 }
 
 .themesBazar_cat02 {

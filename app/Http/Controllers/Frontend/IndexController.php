@@ -31,7 +31,7 @@ class IndexController extends Controller
             Session::put($newsKey,1);
         }  
 
-        $newPost = NewsPost::orderBy('id','DESC')->limit(5)->get();
+        $newPost = NewsPost::orderBy('id','DESC')->limit(9)->get();
         $popularPost = NewsPost::orderBy('view_count', 'DESC')->limit(5)->get();
 
         return view('frontend.news.news_details',compact('news', 'tags_all', 'relatedNews', 'newPost', 'popularPost'));
@@ -65,7 +65,7 @@ class IndexController extends Controller
         $date = new DateTime($request->date);
         $formatDate = $date->format('d-m-Y');
 
-        $newnewspost = NewsPost::orderBy('id','DESC')->limit(8)->get();
+        $newnewspost = NewsPost::orderBy('id','DESC')->limit(9)->get();
         $newspopular = NewsPost::orderBy('view_count','DESC')->limit(8)->get();
 
         $news = NewsPost::where('post_date',$formatDate)->latest()->get();
@@ -87,6 +87,19 @@ class IndexController extends Controller
     }
     
 
+    public function AllNewsShow() {
+        $showallNews = NewsPost::latest()->get();
+        return view ('frontend.news.show_all_news',compact('showallNews'));
+        
+    }
+
+    public function PKBHTeam() {
+        return view ('frontend.team.pkbh_team');
+    }
+
+    public function ClientList() {
+        return view ('frontend.client.client_list');
+    }
 }
     
 

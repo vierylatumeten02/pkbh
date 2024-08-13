@@ -28,7 +28,7 @@
 
                             <li class="menu-title mt-2">Menu</li>
 
-                            
+                            <!--
                             <li>
                             <a href="#sidebarCrm1" data-bs-toggle="collapse">
                                     <i class="mdi mdi-forum-outline"></i>
@@ -64,197 +64,93 @@
                                     </ul>
                                 </div>
                             </li>
+                            -->
 
+                            
                             <li>
-                            <a href="#newspost" data-bs-toggle="collapse">
-                                    <i class="mdi mdi-forum-outline"></i>
-                                    <span> News Post Setting </span>
-                                    <span class="menu-arrow"></span>
+                                <a href="{{ route ('all.news.post') }}">
+                                <i class="mdi mdi-text-box-multiple-outline"></i>
+                                    <span> Berita </span>
                                 </a>
-                                <div class="collapse" id="newspost">
-                                    <ul class="nav-second-level">
-                                        <li>
-                                            <a href="{{ route ('all.news.post') }}">All News Post</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route ('add.news.post') }}">Add News Post</a>
-                                        </li>
-                                    </ul>
-                                </div>
                             </li>
 
                             <li>
-                                <a href="#sidebarCrm" data-bs-toggle="collapse">
-                                    <i class="mdi mdi-account-multiple-outline"></i>
-                                    <span> SEO Setting </span>
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <div class="collapse" id="sidebarCrm">
-                                    <ul class="nav-second-level">
-                                        <li>
-                                            <a href="{{ route('seo.setting') }}">Update SEO</a>
-                                        </li>
-                                        <li>
-                                            <a href="crm-contacts.html">Contacts</a>
-                                        </li>
-                                        <li>
-                                            <a href="crm-opportunities.html">Opportunities</a>
-                                        </li>
-                                        <li>
-                                            <a href="crm-leads.html">Leads</a>
-                                        </li>
-                                        <li>
-                                            <a href="crm-customers.html">Customers</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-
-                            <li>
-                                <a href="#sidebarEmail" data-bs-toggle="collapse">
+                                    <a href="{{ route('contact.message') }}">
                                     <i class="mdi mdi-email-multiple-outline"></i>
-                                    <span> Email </span>
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <div class="collapse" id="sidebarEmail">
-                                    <ul class="nav-second-level">
-                                        <li>
-                                            <a href="email-inbox.html">Inbox</a>
-                                        </li>
-                                        <li>
-                                            <a href="email-read.html">Read Email</a>
-                                        </li>
-                                        <li>
-                                            <a href="email-compose.html">Compose Email</a>
-                                        </li>
-                                        <li>
-                                            <a href="email-templates.html">Email Templates</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                        <span> Form Konsultasi </span>
+                                    </a>
                             </li>
 
-                           <li class="menu-title mt-2">Setting</li>
+                              
 
+                            <li class="menu-title mt-2">Edit</li>
+                        
                             <li>
-                                <a href="#sidebarAuth" data-bs-toggle="collapse">
-                                    <i class="mdi mdi-account-circle-outline"></i>
-                                    <span> Setting Admin User </span>
-                                    <span class="menu-arrow"></span>
+                                <a href="{{ route('all.homepageimg') }}">
+                                <i class="mdi mdi-home-edit-outline"></i>
+                                    <span> Beranda </span>
                                 </a>
-                                <div class="collapse" id="sidebarAuth">
-                                    <ul class="nav-second-level">
-                                        <li>
-                                            <a href="{{ route('all.admin') }}">All Admin</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('add.admin') }}">Add Admin</a>
-                                        </li>
-                                    </ul>
-                                </div>
                             </li>
 
                             <li>
-                                <a href="#sidebarExpages" data-bs-toggle="collapse">
-                                    <i class="mdi mdi-text-box-multiple-outline"></i>
-                                    <span> Extra Pages </span>
+                                <a href="{{ route('all.infographics') }}">
+                                <i class="mdi mdi-information-outline"></i>
+                                    <span> Infografis </span>
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="#sidebarTeam" data-bs-toggle="collapse">
+                                    <i class="mdi mdi-account-group-outline"></i>
+                                    <span> Tim PKBH </span>
                                     <span class="menu-arrow"></span>
                                 </a>
-                                <div class="collapse" id="sidebarExpages">
+                                <div class="collapse" id="sidebarTeam">
                                     <ul class="nav-second-level">
                                         <li>
-                                            <a href="pages-starter.html">Starter</a>
+                                            <a href="{{ route('all.aboutus') }}">Tentang Tim</a>
                                         </li>
                                         <li>
-                                            <a href="pages-timeline.html">Timeline</a>
+                                            <a href="{{ route('all.team.member') }}">Anggota Tim</a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
-
-                            <li class="menu-title mt-2">Components</li>
-
+                            
                             <li>
-                                <a href="#sidebarIcons" data-bs-toggle="collapse">
-                                    <i class="mdi mdi-bullseye"></i>
-                                    <span> Icons </span>
-                                    <span class="menu-arrow"></span>
+                                <a href="#">
+                                <i class="mdi mdi-handshake-outline"></i>
+                                    <span> Klien </span>
                                 </a>
-                                <div class="collapse" id="sidebarIcons">
-                                    <ul class="nav-second-level">
-                                        <li>
-                                            <a href="icons-material-symbols.html">Material Symbols Icons</a>
-                                        </li>
-                                        <li>
-                                            <a href="icons-two-tone.html">Two Tone Icons</a>
-                                        </li>
-                                        <li>
-                                            <a href="icons-feather.html">Feather Icons</a>
-                                        </li>
-                                        <li>
-                                            <a href="icons-mdi.html">Material Design Icons</a>
-                                        </li>
-                                        <li>
-                                            <a href="icons-dripicons.html">Dripicons</a>
-                                        </li>
-                                        <li>
-                                            <a href="icons-font-awesome.html">Font Awesome 5</a>
-                                        </li>
-                                        <li>
-                                            <a href="icons-themify.html">Themify</a>
-                                        </li>
-                                        <li>
-                                            <a href="icons-simple-line.html">Simple Line</a>
-                                        </li>
-                                        <li>
-                                            <a href="icons-weather.html">Weather</a>
-                                        </li>
-                                    </ul>
-                                </div>
                             </li>
 
                             <li>
-                                <a href="#sidebarForms" data-bs-toggle="collapse">
-                                    <i class="mdi mdi-bookmark-multiple-outline"></i>
-                                    <span> Forms </span>
-                                    <span class="menu-arrow"></span>
+                                <a href="#">
+                                <i class="mdi mdi-page-layout-footer"></i>
+                                    <span> Footer </span>
                                 </a>
-                                <div class="collapse" id="sidebarForms">
-                                    <ul class="nav-second-level">
-                                        <li>
-                                            <a href="forms-elements.html">General Elements</a>
-                                        </li>
-                                        <li>
-                                            <a href="forms-advanced.html">Advanced</a>
-                                        </li>
-                                        <li>
-                                            <a href="forms-validation.html">Validation</a>
-                                        </li>
-                                        <li>
-                                            <a href="forms-pickers.html">Pickers</a>
-                                        </li>
-                                        <li>
-                                            <a href="forms-wizard.html">Wizard</a>
-                                        </li>
-                                        <li>
-                                            <a href="forms-masks.html">Masks</a>
-                                        </li>
-                                        <li>
-                                            <a href="forms-quilljs.html">Quilljs Editor</a>
-                                        </li>
-                                        <li>
-                                            <a href="forms-file-uploads.html">File Uploads</a>
-                                        </li>
-                                        <li>
-                                            <a href="forms-x-editable.html">X Editable</a>
-                                        </li>
-                                        <li>
-                                            <a href="forms-image-crop.html">Image Crop</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                            </li>
+                            
+
+                           <li class="menu-title mt-2">Settings</li>
+
+                           <li>
+                                <a href="{{ route('all.admin') }}">
+                                <i class="mdi mdi-account-circle-outline"></i>
+                                    <span> Admin User </span>
+                                </a>
+                            </li> 
+                           
+
+                            <li>
+                                <a href="{{ route('seo.setting') }}">
+                                <i class="mdi mdi-search-web"></i>
+                                    <span> SEO </span>
+                                </a>
                             </li>
 
+
+                            
                         @else
 
                         @endif

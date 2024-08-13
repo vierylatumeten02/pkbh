@@ -37,17 +37,17 @@
 <p>{!! $news->news_details !!}</p>
 </div>
 <div class="singlePage2-tag">
+
+<!--
 <span> Tags : </span>
 
 @foreach($tags_all as $tag)
 <a href=" " rel="tag">{{ucwords($tag)}}</a>
 @endforeach
+-->
 </div>
 
-<div class="single-add">
-<div class="themesBazar_widget"> <div class="textwidget"><p><img loading="lazy" class="aligncenter size-full wp-image-74" src="assets/images/biggapon-1.gif" alt="" width="100%" height="auto"></p>
-</div>
-</div> </div>
+
 
 <form action=" " method="post" class="wpcf7-form init" enctype="multipart/form-data" novalidate="novalidate" data-status="init">
 <div style="display: none;">
@@ -58,7 +58,6 @@
 <div class="col-lg-4 col-md-4">
 <div class="infografis_news_detail">
     <div class="infografis">
-      <h4 class="news_second_section_h2">Infografis</h4>
       <div class="live_image">
         <img src="{{ asset('frontend/assets/images/portfolio/1.jpg') }}" class="lazyload">
       </div>
@@ -76,32 +75,26 @@
 </div>
 </div>
 
-<div class="single_relatedCat">
+<div class="other_news_container">
+<div class="more_news_title_news_detail">
 <a href=" ">Berita Lainnya</a>
 </div>
 <div class="other_news_details">
 <div class="row">
 
-@php
-$section_nine = App\Models\NewsPost::where('status', 1)
-                                       ->where('first_section_nine', 1)
-                                       ->limit(9)
-                                       ->get();
 
-@endphp
-
-@foreach($section_nine as $nine)
+@foreach($newPost as $key=> $newsitem)
 <div class="themesBazar-3 themesBazar-m2">
 <div class="related-wrpp">
 <div class="related-image">
-<a href=" "><img class="lazyload" src="{{asset($nine->image)}}"  ></a>
+<a href="{{ url('news/details/' . $newsitem->id . '/' . $newsitem->news_title_slug) }}"><img class="lazyload" src="{{asset($newsitem->image)}}"  ></a>
 </div>
 <h2 class="related-title">
-<a href="{{ url('news/details/' . $nine->id . '/' . $nine->news_title_slug) }}">{{ Str::limit($nine->news_title, 80) }}</a>
+<a href="{{ url('news/details/' . $newsitem->id . '/' . $newsitem->news_title_slug) }}">{{ Str::limit($newsitem->news_title, 80) }}</a>
 </h2>
 <div class="related-meta">
 <a href=" "><i class="la la-calendar"> </i>
-{{ $nine->created_at->format('d M Y') }}</a>
+{{ $newsitem->created_at->format('d M Y') }}</a>
 </div>
 </div>
 </div>
@@ -110,9 +103,9 @@ $section_nine = App\Models\NewsPost::where('status', 1)
 
 </div>
 </div>
-
 </div>
 
+</div>
 </div>
 
 

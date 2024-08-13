@@ -61,7 +61,7 @@ img.emoji {
  
 <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
 <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 <script charset="utf-8" src="assets/js/horizon_timeline.08c300ab95020b1109a05214ccb84dea.js"></script>
 
 <!-- Font Awesome icons (free version)-->
@@ -107,6 +107,7 @@ img.emoji {
 <!-- Core theme JS-->
 <script src="{{ asset('frontend/assets/js/scripts2.js') }}"></script>
 
+
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
@@ -115,4 +116,30 @@ img.emoji {
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+         
+
+		 <script>tinymce.init({selector:'textarea'});</script>
+				 @if(Session::has('message'))
+		 <script>
+			 var type = "{{ Session::get('alert-type', 'info') }}";
+			 switch (type) {
+				 case 'info':
+					 toastr.info("{{ Session::get('message') }}");
+					 break;
+		 
+				 case 'success':
+					 toastr.success("{{ Session::get('message') }}");
+					 break;
+		 
+				 case 'warning':
+					 toastr.warning("{{ Session::get('message') }}");
+					 break;
+		 
+				 case 'error':
+					 toastr.error("{{ Session::get('message') }}");
+					 break;
+			 }
+		 </script>
+		@endif
  </body> </html>
