@@ -24,7 +24,7 @@ class AdminController extends Controller
         $request->session()->regenerateToken();
 
         $notification = array(
-            'message' => 'Admin Logout Succesfully',
+            'message' => 'Admin telah Keluar',
             'alert-type' => 'info'
 
         );
@@ -65,7 +65,7 @@ class AdminController extends Controller
         $data->save();
 
         $notification = array(
-            'message' => 'Admin Profile Updated Succesfully',
+            'message' => 'Profil Admin Terupdate',
             'alert-type' => 'success'
 
         );
@@ -85,7 +85,7 @@ class AdminController extends Controller
         
         // Match The Old Password
         if (!Hash::check($request->old_password, auth::user()->password)) {
-            return back()->with('error', "Old Password Doesn't Match!");
+            return back()->with('error', "Password Lama Berbeda!");
         }
 
         // Update New Password
@@ -93,7 +93,7 @@ class AdminController extends Controller
             'password' => Hash::make($request->new_password)
         ]);
 
-        return back()->with('status', 'Password Change Successfully');
+        return back()->with('status', 'Password telah diganti');
     }
 
     public function AllAdmin(){
@@ -116,7 +116,7 @@ class AdminController extends Controller
         $user->save();
 
         $notification = array(
-            'message' => 'New Admin Account Created',
+            'message' => 'Berhasil Membuat Akun Admin Baru',
             'alert-type' => 'success'
 
         );
@@ -141,7 +141,7 @@ class AdminController extends Controller
         $user->save();
 
         $notification = array(
-            'message' => 'Admin Account Updated',
+            'message' => 'Akun Admin Terupdate',
             'alert-type' => 'success'
 
         );
@@ -152,7 +152,7 @@ class AdminController extends Controller
         User::findOrFail($id)->delete();
 
         $notification = array(
-            'message' => 'Admin Deleted',
+            'message' => 'Admin Telah Dihapus',
             'alert-type' => 'success'
 
         );
@@ -163,7 +163,7 @@ class AdminController extends Controller
     public function InactiveAdminUser($id){
         User::findOrFail($id)->update(['status' => 'inactive']);
         $notification = array(
-            'message' => 'Admin Inactive!',
+            'message' => 'Admin Tidak Aktif!',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
@@ -172,7 +172,7 @@ class AdminController extends Controller
     public function ActiveAdminUser($id){
         User::findOrFail($id)->update(['status' => 'active']);
         $notification = array(
-            'message' => 'Admin Actived!',
+            'message' => 'Admin Aktif!',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);

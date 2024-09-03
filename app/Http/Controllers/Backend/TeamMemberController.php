@@ -97,21 +97,32 @@ class TeamMemberController extends Controller
         }   
     }
 
-    public function DeleteTeamMember($id){
-        
+    public function DeleteTeamMember($id) {
         $post_image = TeamMember::findOrFail($id);
         $img = $post_image->photo;
-        unlink($img);
-
+    
+        // Get the full path to the image
+        $imagePath = public_path('upload/team_member_photo/' . $img);
+    
+        // Check if the file exists before attempting to delete it
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
+        } else {
+            // Optionally, log the issue or notify the user
+            // Log::warning("File not found: " . $imagePath);
+        }
+    
+        // Delete the team member record from the database
         TeamMember::findOrFail($id)->delete();
-        
+    
         $notification = array(
             'message' => 'Anggota Telah dihapus',
             'alert-type' => 'success'
-
         );
+    
         return redirect()->back()->with($notification);
     }
+    
 
     public function InactiveTeamMember($id){
         TeamMember::findOrFail($id)->update(['status' => 0]);
