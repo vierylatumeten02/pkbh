@@ -11,7 +11,7 @@
                                 <div class="page-title-box">
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                        <a href="{{ route('add.admin') }}" class="btn btn-blue waves-effect waves-light">Add Admin</a>
+                                        <a href="{{ route('add.admin') }}" class="btn btn-blue waves-effect waves-light">+ Tambah Admin</a>
                                         </ol>
                                     </div>
                                     <h4 class="page-title">All Admin <span class="btn btn-danger"> {{ count($alladminuser) }} </span></h4>
@@ -27,9 +27,9 @@
                                         <table id="basic-datatable" class="table dt-responsive nowrap w-100">
                                             <thead>
                                                 <tr>
-                                                    <th>S1</th>
-                                                    <th>Image</th>
-                                                    <th>Name</th>
+                                                    <th>No</th>
+                                                    <th>Foto</th>
+                                                    <th>Nama</th>
                                                     <th>Email</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
@@ -47,17 +47,17 @@
                                                     <td>{{ $item->email }}</td>
                                                     <td>
                                                         @if($item->status == 'active')
-                                                        <span class="badge badge-pill bg-success">Active</span>
+                                                        <span class="badge badge-pill bg-success">Aktif</span>
 
                                                         @else
-                                                        <span class="badge badge-pill bg-danger">Inactive</span>
+                                                        <span class="badge badge-pill bg-danger">Tidak Aktif</span>
 
                                                         @endif
 
                                                     </td>
                                                     <td>
                                                         <a href="{{ route('edit.admin', $item->id) }}" class="btn btn-primary rounded-pill waves-effect waves-light">Edit</a>
-                                                        <a href="{{ route('delete.admin', $item->id)}}" class="btn btn-danger rounded-pill waves-effect waves-light" id="delete">Delete</a>
+                                                        <a href="{{ route('delete.admin', $item->id)}}" class="btn btn-danger rounded-pill waves-effect waves-light" id="delete">Hapus</a>
                                                         
                                                         @if($item->status == 'active')
                                                         <a href="{{ route('inactive.admin.user', $item->id)}}" class="btn btn-secondary rounded-pill waves-effect waves-light" title="Inactive"><i class="fa-solid fa-thumbs-down"></i></a>

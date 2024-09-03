@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
@@ -30,10 +31,22 @@ class AboutUsController extends Controller
             ]);
             
             $notification = array(
-                'message' => 'Tentang Tim Terupdate',
+                'message' => 'Tentang Tim telah diperbarui',
                 'alert-type' => 'success'
             );
             return redirect()->back()->with($notification);
-        }
+        } else{
+            AboutUs::findOrFail($aboutus_id)->update([
+                'team_description' => $request->team_description,
+                'updated_at' => Carbon::now(),  
+            ]);
+       
+            $notification = array(
+            'message' => 'Tentang Tim telah diperbarui',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('all.aboutus')->with($notification);
+
+        }   
     }
 }

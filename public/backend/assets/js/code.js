@@ -4,13 +4,14 @@ $(function() {
       var link = $(this).attr("href");
 
       Swal.fire({
-          title: 'Are you sure?',
-          text: "Delete This Data?",
+          title: 'Apakah anda yakin?',
+          text: "Hapus data ini?",
           icon: 'warning',
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
-          confirmButtonText: 'Yes, delete it!',
+          confirmButtonText: 'Iya, hapus!',
+          cancelButtonText: 'Batalkan',
           showClass: {
               popup: 'animate__animated animate__fadeInDown'
           },
@@ -20,8 +21,8 @@ $(function() {
       }).then((result) => {
           if (result.isConfirmed) {
               Swal.fire({
-                  title: 'Deleted!',
-                  text: 'Your file has been deleted.',
+                  title: 'Terhapus!',
+                  text: 'File anda telah terhapus.',
                   icon: 'success',
                   showClass: {
                       popup: 'animate__animated animate__fadeInDown'

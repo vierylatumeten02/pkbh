@@ -1,15 +1,8 @@
 <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-6">
-                            Bantuan Hukum Universitas Hasanuddin &copy; <script>document.write(new Date().getFullYear())</script> 
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text-md-end footer-links d-none d-sm-block">
-                                    <a href="javascript:void(0);">About Us</a>
-                                    <a href="javascript:void(0);">Help</a>
-                                    <a href="javascript:void(0);">Contact Us</a>
-                                </div>
+                            <div class="col-md-12">
+                            <script>document.write(new Date().getFullYear())</script> &copy; Bantuan Hukum Universitas Hasanuddin   
                             </div>
                         </div>
                     </div>

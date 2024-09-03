@@ -23,31 +23,22 @@
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
-                                                    <th>Tanggal</th>
-                                                    <th>Nama Depan</th>
-                                                    <th>Nama Belakang</th>
-                                                    <th>Email</th>
-                                                    <th>No. Telepon</th>
-                                                    <th>Keluhan</th>
+                                                    <th>Waktu</th>
+                                                    <th>Nama</th>
                                                     <th>Action</th>
                                                     </tr>
                                             </thead>
-                                        
                                         
                                             <tbody>
                                                 @php($i = 1)
                                                 @foreach($contacts as $item)
                                                 <tr>
                                                     <td>{{ $i++ }}</td>
-                                                    <td>{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</td>
-                                                    <td>{{ $item->first_name }}</td>
-                                                    <td>{{ $item->last_name }}</td> 
-                                                    <td>{{ $item->email }}</td>
-                                                    <td>{{ $item->phone }}</td>
-                                                    <td>{{ $item->message }}</td>
+                                                    <td>{{ Carbon\Carbon::parse($item->created_at)->translatedformat('d F Y - H:i') }}</td>
+                                                    <td>{{ $item->first_name }} {{ $item->last_name }}</td>
                                                     <td>
-                                                        <a href="{{ route('delete.message', $item->id)}}" class="btn btn-danger rounded-pill waves-effect waves-light" id="delete">Delete</a>
-                                                    
+                                                        <a href="{{ route('contact.detail', $item->id)}}" class="btn btn-primary rounded-pill waves-effect waves-light">Detail</a>
+                                                        <a href="{{ route('delete.message', $item->id)}}" class="btn btn-danger rounded-pill waves-effect waves-light" id="delete">Hapus</a>
                                                     </td>
                                                 </tr>
                                                 @endforeach
@@ -63,8 +54,6 @@
                     </div> <!-- container -->
 
                 </div> <!-- content -->
-
-
-
+</div>
 
 @endsection

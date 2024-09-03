@@ -28,7 +28,7 @@ class TeamMemberController extends Controller
             $img = $img->resize(784, 784);
 
             $img->save(public_path('/upload/team_member_photo/'.$name_gen));
-            $save_url = '/upload/team_member_photo/'.$name_gen;
+            $save_url = 'upload/team_member_photo/'.$name_gen;
 
             TeamMember::insert([
                 'photo' => $save_url,
@@ -36,15 +36,15 @@ class TeamMemberController extends Controller
                 'department' => $request->department,
                 'created_at' => Carbon::now(),  
             ]);
-        }  // end if
 
-         $notification = array(
+            $notification = array(
             'message' => 'Anggota Tim telah ditambahkan',
             'alert-type' => 'success'
-
-        );
-        return redirect()->route('all.team.member')->with($notification);
-
+            );
+            return redirect()->route('all.team.member')->with($notification);
+    
+        }
+    
     }
 
     public function EditTeamMember($id) {

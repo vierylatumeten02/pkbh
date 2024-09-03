@@ -1,15 +1,21 @@
+@php
+$allfooter = App\Models\Footer::find(1);
+@endphp
+
 <footer class="footer" id="footer">
         <div class="footer-content">
             <div class="footer-social">
-            <a href="https://www.instagram.com">Instagram</a>
-            <a href="https://www.instagram.com">Facebook</a>
-            <a href="https://www.instagram.com">WhatsApp</a>
-                </div>
+                <div class="social-title"><p>Media Sosial</p></div>
+            <div class="social-icon">
+            <a href="{{ $allfooter->instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="{{ $allfooter->facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="{{ $allfooter->whatsapp }}" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>    
+        </div>
             <div class="footer-business">
-                <p>Business:</p>
-                <p>info@thinkingroominc.com</p>
-                <p>+6221 255 585 96 / +62 8111359780</p>
-                <p>Bantuan Hukum Universitas Hasanuddin &copy; <script>document.write(new Date().getFullYear())</script></p>
+                <p>Email: {{ $allfooter->email }}</p>
+                <p>{{ $allfooter->address }}</p>
+                <p><script>document.write(new Date().getFullYear())</script> &copy; {{ $allfooter->copyright }}</p>
             </div>
         </div>
 

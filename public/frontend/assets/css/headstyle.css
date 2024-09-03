@@ -137,6 +137,7 @@
 	font-size: 20px;	
 	display: inline-block;
 	transition: .5s all;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -151,14 +152,14 @@
 
 .secOne_smallTitle a {
 	color: #000000;
-	font-size: 20px;	
+	font-size: 1.15rem;	
 	display: inline-block;
 	transition: .5s all;
 	font-weight: 500;
 }
 
 .section-two {
-	background: #121212;
+	background: #D9353A;
 	margin: 10px 0 0;
 	padding: 50px 0;
 	border-radius: 10px;
@@ -173,7 +174,6 @@
 }
 
 .section-three {
-	background: #121212;
 	padding: 40px 15px 60px 30px;
 	margin-bottom: 5%;
 }

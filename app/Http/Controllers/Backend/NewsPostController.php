@@ -29,6 +29,33 @@ class NewsPostController extends Controller
 
     public function StoreNewsPost(Request $request){
         
+        if ($request->today_highlight && $request->top_slider) {
+            $notification = array(
+                'message' => 'Tidak dapat mempublish berita pada Slider dan Today Highlight secara bersamaan',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification)->withInput();
+        }
+
+
+        if ($request->today_highlight) {
+            // Set 'today_highlight' to false for all other posts
+            NewsPost::where('today_highlight', true)->update(['today_highlight' => false]);
+        }
+
+        if ($request->top_slider) {
+            // Count the current number of top_slider posts
+            $topSliderCount = NewsPost::where('top_slider', true)->count();
+    
+            if ($topSliderCount >= 3) {
+                // Option 1: Remove the oldest top slider post
+                NewsPost::where('top_slider', true)
+                    ->oldest()
+                    ->first()
+                    ->update(['top_slider' => false]);
+            }
+        }
+
         if ($request->file('image')) {
             $manager = new ImageManager(new Driver());
             $name_gen = hexdec(uniqid()).'.'.$request->file('image')->getClientOriginalExtension();
@@ -82,6 +109,32 @@ class NewsPostController extends Controller
 
         $newspost_id = $request->id;
         
+        if ($request->today_highlight && $request->top_slider) {
+            $notification = array(
+                'message' => 'Tidak dapat mempublish berita pada Slider dan Today Highlight secara bersamaan',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification)->withInput();
+        }
+        // Check if the current post is marked as a highlight
+    if ($request->today_highlight) {
+        // Set 'today_highlight' to false for all other posts
+        NewsPost::where('today_highlight', true)->update(['today_highlight' => false]);
+    }
+
+    // Check if the current post is marked for top slider
+    if ($request->top_slider) {
+        // Count the current number of top_slider posts
+        $topSliderCount = NewsPost::where('top_slider', true)->count();
+
+        if ($topSliderCount >= 3) {
+            // Remove the oldest top slider post
+            NewsPost::where('top_slider', true)
+                ->oldest()
+                ->first()
+                ->update(['top_slider' => false]);
+        }
+    }
         if ($request->file('image')) {
 
             $manager = new ImageManager(new Driver());
@@ -108,7 +161,7 @@ class NewsPostController extends Controller
                 'first_section_three' => $request->first_section_three,
                 'first_section_nine' => $request->first_section_nine,
     
-                'post_date' => date('d-m-Y'),
+                'post_date' => date('d M Y, H:i'),
                 'post_month' => date('F'),
                 'image' => $save_url,
                 'updated_at' => Carbon::now(),  
@@ -144,7 +197,7 @@ class NewsPostController extends Controller
             ]);
        
             $notification = array(
-            'message' => 'News Posted without Image Update',
+            'message' => 'Berita telah diedit',
             'alert-type' => 'success'
         );
         return redirect()->route('all.news.post')->with($notification);

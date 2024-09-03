@@ -7,60 +7,31 @@ Klien | PKBH UNHAS
 
 <div class="client_container">
 <div class="container">
-<div class="section-three">
-<div class="secThree-color">
 
 <div class="row">
   <h3 class="h3_client">Klien</h3>
 </div>
 
+@php
+$categories = App\Models\Category::get();
+$subcategories = App\Models\Subcategory::get();
+@endphp
+
 <div class="client-content">
-
+<div class="container">
 <div class="row">
-<div class="col-lg-6 col-md-6">
-<div class="client_left">
-<h6 class="h6_client">TECHNOLOGY COMPANY</h2>
-<p class="p_client_content">Bukalapak, sdksadasd, adajssa </p>
-</div>
-
-<div>
-<h6 class="h6_client">PROPERTY & HOSPITALITY</h2>
-<p class="p_client_content">Bukalapak, sdksadasd, adajssa </p>
-</div>
-
-<div>
-<h6 class="h6_client">BANKING & FINANCIAL SERVICES</h2>
-<p class="p_client_content">Bukalapak, sdksadasd, adajssa </p>
-</div>
-
-<div>
-<h6 class="h6_client">OTHER</h2>
-<p class="p_client_content">Bukalapak, sdksadasd, adajssa </p>
-</div>
-
-</div>
-
-<div class="col-lg-6 col-md-6">
-<div class="client_left">
-<div>
-<h6 class="h6_client">CORPORATION</h2>
-<p class="p_client_content">Bukalapak, sdksadasd, adajssa </p>
-</div>
-
-<div>
-<h6 class="h6_client">FOOD & BEVERAGES</h2>
-<p class="p_client_content">Bukalapak, sdksadasd, adajssa </p>
-</div>
-
-<div>
-<h6 class="h6_client">RETAIL & PRODUCT</h2>
-<p class="p_client_content">Bukalapak, sdksadasd, adajssa </p>
-</div>
-
-<div>
-<h6 class="h6_client">Technology Company</h2>
-<p class="p_client_content">Bukalapak, sdksadasd, adajssa </p>
-</div>
+@foreach ($categories as $category)
+                        <div class="col-lg-6 col-md-6" id="client_box">
+                            <h6 class="h6_client">{{ $category->category_name }}</h6>
+                            <div class="p_client_content">
+                                @foreach ($category->subcategories as $subcategory)
+                                    <p>{{ $subcategory->subcategory_name }}</p>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endforeach
+    </div>
+    </div>
 
 </div>
 </div>
@@ -72,10 +43,8 @@ Klien | PKBH UNHAS
 
 
 </div>
-</div>
-</div>
+
 <div class="containter">
-<hr>
 </div>
 </div>
 

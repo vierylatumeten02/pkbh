@@ -43,7 +43,7 @@
                                                 </div>
                                             </div>
 
-                                            <button type="submit" class="btn btn-primary waves-effect waves-light">Save Changes</button>
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light">Simpan Perubahan</button>
 
                                         </form>
 
@@ -72,5 +72,33 @@
 
 </script>
 
+<script type="text/javascript">
+    $(document).ready(function (){
+        $('#myForm').validate({
+            rules: {
+                infographic_image: {
+                    required : true,
+                },
+            },
+            messages :{
+                infographic_image: {
+                    required : 'Masukkan Gambar Baru',
+                },
+            },
+            errorElement : 'span', 
+            errorPlacement: function (error,element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight : function(element, errorClass, validClass){
+                $(element).addClass('is-invalid');
+            },
+            unhighlight : function(element, errorClass, validClass){
+                $(element).removeClass('is-invalid');
+            },
+        });
+    });
+    
+</script>
 
 @endsection

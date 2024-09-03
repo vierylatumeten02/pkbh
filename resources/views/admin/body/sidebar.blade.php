@@ -15,8 +15,6 @@
 
                         <ul id="side-menu">
 
-                            <li class="menu-title">Navigation</li>
-                
                             <li>
                                 <a href="{{ route('admin.dashboard') }}">
                                 <i class="mdi mdi-view-dashboard-outline"></i>
@@ -25,8 +23,6 @@
                             </li>
 
                             @if($status == 'active')
-
-                            <li class="menu-title mt-2">Menu</li>
 
                             <!--
                             <li>
@@ -67,21 +63,19 @@
                             -->
 
                             
-                            <li>
+                            <!--<li>
                                 <a href="{{ route ('all.news.post') }}">
                                 <i class="mdi mdi-text-box-multiple-outline"></i>
                                     <span> Berita </span>
                                 </a>
-                            </li>
+                            </li>-->
 
                             <li>
-                                    <a href="{{ route('contact.message') }}">
-                                    <i class="mdi mdi-email-multiple-outline"></i>
-                                        <span> Form Konsultasi </span>
-                                    </a>
-                            </li>
-
-                              
+                                <a href="{{ route('contact.message') }}">
+                                <i class="mdi mdi-email-multiple-outline"></i>
+                                    <span> Form Konsultasi </span>
+                                </a>
+                            </li>  
 
                             <li class="menu-title mt-2">Edit</li>
                         
@@ -117,22 +111,34 @@
                                 </div>
                             </li>
                             
+                            
                             <li>
-                                <a href="#">
-                                <i class="mdi mdi-handshake-outline"></i>
+                                <a href="#sidebarClient" data-bs-toggle="collapse">
+                                    <i class="mdi mdi-handshake-outline"></i>
                                     <span> Klien </span>
+                                    <span class="menu-arrow"></span>
                                 </a>
+                                <div class="collapse" id="sidebarClient">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="{{ route('all.category') }}">Category</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('all.subcategory') }}">Subcategory</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
 
                             <li>
-                                <a href="#">
+                                <a href="{{ route('footer.setup') }}">
                                 <i class="mdi mdi-page-layout-footer"></i>
                                     <span> Footer </span>
                                 </a>
                             </li>
                             
 
-                           <li class="menu-title mt-2">Settings</li>
+                           <li class="menu-title mt-2">Pengaturan</li>
 
                            <li>
                                 <a href="{{ route('all.admin') }}">

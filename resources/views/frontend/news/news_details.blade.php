@@ -17,16 +17,13 @@
 
 <div class="col-lg-11 col-md-10">
 <div class="viwe-count">
-{{ $news->created_at->format('l, d M Y')}}
+{{ $news->created_at->translatedFormat('l, d F Y')}}
 </div>
 </div>
 </div>
 
 <div class="single-image">
-<a href=" "><img class="lazyload" src="{{ asset($news->image)}}"  ></a>
-<h2 class="single-caption2">
-{{$news->news_title}}
-</h2>
+<img class="lazyload" src="{{ asset($news->image)}}">
 </div>
  
 <div class="single-page-add2">
@@ -55,11 +52,15 @@
 </div>
 </div>
 
+@php
+$infographic = App\Models\Infographic::find(1);
+@endphp
+
 <div class="col-lg-4 col-md-4">
 <div class="infografis_news_detail">
     <div class="infografis">
       <div class="live_image">
-        <img src="{{ asset('frontend/assets/images/portfolio/1.jpg') }}" class="lazyload">
+        <img src="{{ asset($infographic->infographic_image) }}" class="lazyload">
       </div>
     </div>
   </div>
@@ -77,7 +78,7 @@
 
 <div class="other_news_container">
 <div class="more_news_title_news_detail">
-<a href=" ">Berita Lainnya</a>
+<a href="{{ url('/news') }}">Berita Lainnya</a>
 </div>
 <div class="other_news_details">
 <div class="row">
@@ -93,8 +94,8 @@
 <a href="{{ url('news/details/' . $newsitem->id . '/' . $newsitem->news_title_slug) }}">{{ Str::limit($newsitem->news_title, 80) }}</a>
 </h2>
 <div class="related-meta">
-<a href=" "><i class="la la-calendar"> </i>
-{{ $newsitem->created_at->format('d M Y') }}</a>
+<p><i class="la la-calendar"> </i>
+{{ $newsitem->created_at->translatedFormat('d F Y') }}</p>
 </div>
 </div>
 </div>

@@ -9,6 +9,7 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\FooterController;
 use App\Http\Controllers\Backend\HomepageImgController;
 use App\Http\Controllers\Backend\NewsPostController;
 use App\Http\Controllers\Backend\SeoSettingController;
@@ -119,13 +120,6 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('/active/news/post/{id}','ActiveNewsPost')->name('active.news.post');
     });
 
-    //Contact Controller
-    Route::controller(ContactController::class)->group(function () {
-        Route::get('/contact', 'Contact')->name('contact.me');
-        Route::post('/store/message', 'StoreMessage')->name('store.message');
-        Route::get('/contact/message', 'ContactMessage')->name('contact.message');
-        Route::get('/delete/message/{id}', 'DeleteMessage')->name('delete.message');
-    });
 
     //Infographic Controller
     Route::controller(InfographicController::class)->group(function () {
@@ -159,6 +153,24 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('/inactive/team/{id}','InactiveTeamMember')->name('inactive.team.member');
         Route::get('/active/team/{id}','ActiveTeamMember')->name('active.team.member');
     });
+
+    Route::controller(ContactController::class)->group(function () {
+        Route::get('/contact', 'Contact')->name('contact.me');
+        Route::get('/contact/message', 'ContactMessage')->name('contact.message');
+        Route::get('/delete/message/{id}', 'DeleteMessage')->name('delete.message');
+
+        Route::get('/contact/review/{id}', 'ContactReview')->name('contact.review');
+        Route::get('/reach/contact', 'ContactReach')->name('contact.reach');
+        Route::get('/contact/detail/{id}', 'ContactDetail')->name('contact.detail');
+    });
+
+    // Footer Controller
+    Route::controller(FooterController::class)->group(function(){
+
+        Route::get('/footer/setup','FooterSetup')->name('footer.setup');
+        Route::post('/update/footer','UpdateFooter')->name('update.footer');
+        
+    });
 });
 
     //Access for All
@@ -183,5 +195,9 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     //Client
     Route::get('/client', [IndexController::class, 'ClientList']);
 
+    //Contact Public Controller
+    Route::controller(ContactController::class)->group(function () {
+        Route::post('/store/message', 'StoreMessage')->name('store.message');
+    });
     
     

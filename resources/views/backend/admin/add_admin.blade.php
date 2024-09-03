@@ -59,7 +59,7 @@
                                                 </div>
                                             </div>
 
-                                            <button type="submit" class="btn btn-primary waves-effect waves-light">Save Changes</button>
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light">Simpan</button>
 
                                         </form>
 

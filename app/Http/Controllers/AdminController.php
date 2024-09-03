@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NewsPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -10,7 +11,8 @@ use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
 {
     public function AdminDashboard(){
-        return view('admin.index');
+        $allnews = NewsPost::latest()->get();
+        return view ('backend.news.all_news_post',compact('allnews'));
     }
 
 

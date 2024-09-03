@@ -33,9 +33,9 @@
 
                                             <input type="hidden" name="id" value="{{ $newspost->id }}">
 
-                                            <div class="row">
+                                            <!--<div class="row">
                                                 <div class="form-group col-md-6 mb-3">
-                                                    <label for="inputEmail4" class="form-label">Category</label>
+                                                    <label for="inputEmail4" class="form-label">Kategori</label>
                                                     <select name="category_id" class="form-select" id="example-select">
                                                             <option>Select Category</option>
                                                             @foreach($categories as $category)
@@ -44,9 +44,9 @@
                                                     </select>
 
                                                 </div>
-                                            </div>
+                                            </div> -->
 
-                                            <div class="row">
+                                            <!--<div class="row">
                                                 <div class="form-group col-md-6 mb-3">
                                                     <label for="inputEmail4" class="form-label">Subcategory</label>
                                                     <select name="subcategory_id" class="form-select" id="example-select">
@@ -61,13 +61,13 @@
                                                     @endif  
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div> -->
 
                                             <div class="row">
                                                 <div class="form-group col-md-6 mb-3">
-                                                    <label for="inputEmail4" class="form-label">Writer</label>
+                                                    <label for="inputEmail4" class="form-label">Penulis</label>
                                                     <select name="user_id" class="form-select" id="example-select">
-                                                            <option>Select Writer</option>
+                                                            <option>Pilih Penulis</option>
                                                             @foreach($adminuser as $user)
                                                             <option value="{{ $user->id }}" {{ $user->id == $newspost->user_id ? 'selected' : '' }}>{{ $user->name }}</option>
                                                             @endforeach
@@ -77,14 +77,14 @@
 
                                             <div class="row">
                                                 <div class="form-group col-md-6 mb-3">
-                                                    <label for="inputEmail4" class="form-label">Title</label>
+                                                    <label for="inputEmail4" class="form-label">Judul</label>
                                                     <input type="text" name="news_title" class="form-control" id="inputEmail4" value="{{ $newspost->news_title }}">
                                                 </div>
                                             </div>
                                             
                                             <div class="row">
                                                 <div class="form-group col-md-6 mb-3">
-                                                    <label for="inputGroupFile04" class="form-label">News Image</label>
+                                                    <label for="inputGroupFile04" class="form-label">Gambar Berita</label>
                                                     <input class="form-control" type="file" name="image" id="image">
                                                 </div>
                                             </div>
@@ -98,7 +98,7 @@
 
                                             <div class="row">
                                                 <div class="col-12 mb-3">
-                                                    <label for="inputEmail4" class="form-label">Article</label>
+                                                    <label for="inputEmail4" class="form-label">Artikel</label>
                                                     
                                                     <textarea id="default" name="news_details">
                                                         {!! $newspost->news_details !!}
@@ -106,12 +106,12 @@
                                                 </div>
                                             </div>
 
-                                            <div class="row">
+                                            <!--<div class="row">
                                                 <div class="form-group col-md-6 mb-3">
                                                     <label for="inputEmail4" class="form-label">Tags</label>
                                                     <input type="text" name="tags" class="selectize-close-btn" value="{{ $newspost->tags }}">
                                                 </div>
-                                            </div>
+                                            </div> -->
 
                                             <div class="row">
                                                 <div class="col-lg-6">
@@ -122,24 +122,18 @@
 
                                                     <div class="form-check mb-2 form-check-primary">
                                                         <input class="form-check-input" type="checkbox" value="1" name="top_slider" id="customckeck2" {{ $newspost->top_slider == 1 ? 'checked' : '' }}>
-                                                        <label class="form-check-label" for="customckeck2">Top Slider</label>
+                                                        <label class="form-check-label" for="customckeck2">Slider</label>
                                                     </div>
-                                                </div>
-
-                                                <div class="col-lg-6">
-                                                    <div class="form-check mb-2 form-check-primary">
-                                                        <input class="form-check-input" type="checkbox" value="1" name="first_section_three" id="customckeck3" {{ $newspost->first_section_three == 1 ? 'checked' : '' }}>
-                                                        <label class="form-check-label" for="customckeck3">First Section Three</label>
-                                                    </div>
+                                                    
 
                                                     <div class="form-check mb-2 form-check-primary">
                                                         <input class="form-check-input" type="checkbox" value="1" name="first_section_nine" id="customckeck4" {{ $newspost->first_section_nine == 1 ? 'checked' : '' }}>
-                                                        <label class="form-check-label" for="customckeck4">First Section Nine</label>
+                                                        <label class="form-check-label" for="customckeck4">4 Berita Awal</label>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <button type="submit" class="btn btn-primary waves-effect waves-light">Save Changes</button>
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light">Simpan Perubahan</button>
 
                                         </form>
 
@@ -196,7 +190,7 @@
 
 
 </script>
-
+<!--
 <script type="text/javascript">
     $(document).ready(function(){
         $('select[name="category_id"]').on('change', function(){
@@ -220,6 +214,6 @@
         });
     });
 
-</script>
+</script> -->
 
 @endsection

@@ -11,17 +11,19 @@ $homepageimg = App\Models\HomepageImg::find(1);
 @endphp
 <header class="masthead" style="background-image: url('{{ asset($homepageimg->top) }}');">
             <div class="container">
-                <div class="masthead-subheading">Konsultasi Hukum di PKBH</div>
-                <div class="masthead-heading text-uppercase">Universitas Hasanuddin</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="#consultation">Konsultasi Sekarang</a>
+                <div class="masthead-subheading">‎</div>
+                <div class="masthead-heading text-uppercase">‎</div>
+                <div class="masthead-heading text-uppercase">‎</div>
+            </div>
+            <div class="button_container">
+                <div class="col lg-4 md-4" id="consult_button">
+                    <a class="btn btn-primary btn-xl" href="#consultation">Konsultasi Sekarang</a>
+                </div>
             </div>
 </header>
 
 
-
-
 <section class="page-section" id="news">
-
 <div class="container">
 <div class="row">
 
@@ -40,26 +42,27 @@ $news_slider = App\Models\NewsPost::where('status', 1)
 ?>
 
 
-
 <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1578px, 0px, 0px); transition: all 1s ease 0s; width: 3684px;">
 @foreach($news_slider as $slider)  
 <div class="owl-item" style="width: 506.25px; margin-right: 20px;"><div class="secOne_newsContent">
 <div class="sec-one-image">
 <a href="{{ url('news/details/' .$slider->id . '/' . $slider->news_title_slug) }} "><img class="lazyload" src="{{asset($slider->image)}}"></a>
-<h6 class="sec-small-cat">
-</h6>
+<h6 class="sec-small-cat"></h6>
 <h1 class="sec-one-title">
 <a href="{{ url('news/details/' .$slider->id . '/' . $slider->news_title_slug) }} "><h4>{{$slider->news_title}}</h4></a>
-<div class="news-date">Berita <span>| {{ $slider->created_at->format('d M Y') }}</span></div>
+<div class="news-date">Berita <span>| {{ $slider->created_at->translatedFormat('d F Y') }}</span></div>
 </h1>
 </div>
-</div></div> 
+</div>
+</div> 
 @endforeach
 
-
-
-</div></div><div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i class="fa-solid fa-angle-left"></i></button>
-<button type="button" role="presentation" class="owl-next"><i class="fa-solid fa-angle-right"></i></button></div>
+</div>
+</div>
+<div class="owl-nav">
+    <button type="button" role="presentation" class="owl-prev"><i class="fa-solid fa-angle-left"></i></button>
+    <button type="button" role="presentation" class="owl-next"><i class="fa-solid fa-angle-right"></i></button>
+</div>
 
 </div>
 </div>
@@ -74,8 +77,7 @@ $today_highlight = App\Models\NewsPost::where('status', 1)
 @endphp
 
 
-<div class="col-lg-4 col-md-4">
-<div class="row">
+<div class="col-lg-4 col-md-3" id="today-highlight">
 @foreach($today_highlight as $highlight)
 <div class="today-highlight-section">  
 <div class="owl-item"><div class="secOne_newsContent">
@@ -83,7 +85,7 @@ $today_highlight = App\Models\NewsPost::where('status', 1)
 <a href="{{ url('news/details/' .$highlight->id . '/' . $highlight->news_title_slug) }} "><img class="lazyload" src="{{asset($highlight->image)}}"></a>
 <h1 class="sec-one-title">
 <a href="{{ url('news/details/' .$highlight->id . '/' . $highlight->news_title_slug) }} "><h4>{{$highlight->news_title}}</h4></a>
-<div class="news-date">Berita <span>| {{ $slider->created_at->format('d M Y') }}</span></div>
+<div class="news-date">Berita <span>| {{ $slider->created_at->translatedFormat('d F Y') }}</span></div>
 </h1>
 </div>
 </div></div>
@@ -98,37 +100,10 @@ $today_highlight = App\Models\NewsPost::where('status', 1)
 <hr class="hr_news">
 </div>
 
-
-<!--<div class="col-lg-5 col-md-5">
- 
-@php
-$section_three = App\Models\NewsPost::where('status', 1)
-                                       ->where('first_section_three', 1)
-                                       ->limit(3)
-                                       ->get();
-
-@endphp
-
-@foreach($section_three as $three)
-<div class="secOne-smallItem">
-<div class="secOne-smallImg">
-<a href="{{ url('news/details/' .$three->id . '/' . $three->news_title_slug) }}"><img class="lazyload" src="{{asset($three->image)}}"  ></a>
-<h5 class="secOne_smallTitle">
-<a href="{{ url('news/details/' .$three->id . '/' . $three->news_title_slug) }}">{{ $three->news_title }} </a>
-</h5>
-</div>
-</div>
-@endforeach 
-
-
-</div>
-</div>-->
-
 <div class="container">
 <div class="news_bottom_section">
 <div class="row">
 
-  
 <div class="col-lg-7 col-md-7">
 <div class="row">
 <div class="sec-one-item2">
@@ -148,6 +123,7 @@ $section_nine = App\Models\NewsPost::where('status', 1)
 <div class="container">
 <div class="secOne-smallItem">
 <div class="secOne-smallImg">
+<a href="{{ url('news/details/' . $nine->id . '/' . $nine->news_title_slug) }} ">
 <img class="lazyload" src="{{asset($nine->image)}}"></a>
 <div class="title_holder">
 <h5 class="secOne_smallTitle">
@@ -155,7 +131,7 @@ $section_nine = App\Models\NewsPost::where('status', 1)
 </h5>
 <h6 class="news_date">
 <i class="lar la-calendar"></i>
-{{ $nine->created_at->format('d M Y') }}
+{{ $nine->created_at->translatedFormat('d F Y') }}
 </h6>
 
 </div>
@@ -166,25 +142,6 @@ $section_nine = App\Models\NewsPost::where('status', 1)
 
 <h4 class="themesBazar_cat01"><span> <a href="{{url('news/')}}">Selengkapnya <i class="las la-arrow-circle-right"></i> </a></span> </h4>
 
-<!--
-@foreach($section_nine as $nine)
-<div class="themesBazar-3 themesBazar-m2">
-<div class="sec-one-wrpp2">
-<div class="secOne-news">
-<h4 class="secOne-title2">
-<a href="{{ url('news/details/' . $nine->id . '/' . $nine->news_title_slug) }}">{{ Str::limit($nine->news_title, 50) }}</a>
-</h4>
-</div>
-<div class="cat-meta">
-<a href=" "> <i class="lar la-newspaper"></i>
-{{ $nine->created_at->format('d M Y') }}
-</a>
-</div>
-</div>
-</div>
-@endforeach
--->
-
 </div>
 </div>
 </div>
@@ -194,7 +151,7 @@ $section_nine = App\Models\NewsPost::where('status', 1)
 $infographic = App\Models\Infographic::find(1);
 @endphp
 
-<div class="col-lg-4 col-md-4">
+<div class="col-lg-4 col-md-3">
   <div class="row">
     <div class="infografis">
       <h4 class="news_second_section_h2">Infografis</h4>

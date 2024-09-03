@@ -9,6 +9,7 @@ class NewsPost extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $dates = ['created_at'];
 
     public function category(){
         return $this->belongsTo(Category::class,'category_id','id');

@@ -142,7 +142,7 @@ h3, .h3 {
 }
 
 h4, .h4 {
-  font-size: calc(1.275rem + 0.3vw);
+  font-size: 1.3rem;
 }
 @media (min-width: 1200px) {
   h4, .h4 {
@@ -151,7 +151,7 @@ h4, .h4 {
 }
 
 h5, .h5 {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
 }
 
 h6, .h6 {
@@ -669,6 +669,7 @@ progress {
   margin-top: calc(-1 * var(--bs-gutter-y));
   margin-right: calc(-0.5 * var(--bs-gutter-x));
   margin-left: calc(-0.5 * var(--bs-gutter-x));
+  justify-content: space-between;
 }
 .row > * {
   flex-shrink: 0;
@@ -780,7 +781,7 @@ progress {
 
 .col-12 {
   flex: 0 0 auto;
-  width: 100%;
+  width: 30%;
 }
 
 .offset-1 {
@@ -1102,19 +1103,24 @@ progress {
   }
   .col-md-3 {
     flex: 0 0 auto;
-    width: 25%;
+    width: 41%;
   }
   .col-md-4 {
     flex: 0 0 auto;
-    width: 33.33333333%;
+    width: 35%;
   }
   .col-md-5 {
     flex: 0 0 auto;
-    width: 41.66666667%;
+    width: 41%;
   }
+
+  .text-muted{
+    margin-top: -1rem;
+  }
+
   .col-md-6 {
     flex: 0 0 auto;
-    width: 50%;
+    width: 25%;
   }
   .col-md-7 {
     flex: 0 0 auto;
@@ -6983,6 +6989,7 @@ textarea.form-control-lg {
 
 .overflow-hidden {
   overflow: hidden !important;
+  padding: 0;
 }
 
 .overflow-visible {
@@ -7171,7 +7178,7 @@ textarea.form-control-lg {
 
 .border-primary {
   --bs-border-opacity: 1;
-  border-color: rgba(var(--bs-primary-rgb), var(--bs-border-opacity)) !important;
+  border-color: #D9353A !important;
 }
 
 .border-secondary {
@@ -8089,9 +8096,8 @@ textarea.form-control-lg {
 .text-muted {
   --bs-text-opacity: 1;
   color: #fff !important;
-  margin-right: 50px;
-  margin-left: 25px;
   text-align: justify;
+  padding-right: 2.5rem;
 }
 
 .text-black-50 {
@@ -9190,7 +9196,7 @@ textarea.form-control-lg {
   .py-md-5 {
     padding-top: 1.3rem !important;
     padding-bottom: 3rem !important;
-  }
+    }
   .pt-md-0 {
     padding-top: 0 !important;
   }
@@ -10838,8 +10844,8 @@ p {
 }
 
 .page-section {
-  padding: 2rem 0 1.5rem 0;
-  margin-top: 50px;
+  padding: 2rem 0 0.3rem 0;
+  margin-top: 3rem;
 }
 .page-section h2.section-heading, .page-section .section-heading.h2 {
   font-size: 2.5rem;
@@ -10859,10 +10865,10 @@ p {
   }
 }
 .btn-xl {
-  padding: 1.25rem 2.5rem;
+  padding: 1rem 2rem;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1.125rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .btn-social {
@@ -10974,7 +10980,7 @@ header.masthead .masthead-heading {
 @media (min-width: 768px) {
   header.masthead {
     padding-top: 17rem;
-    padding-bottom: 15rem;
+    padding-bottom: 5rem;
   }
   header.masthead .masthead-subheading {
     font-size: 2.25rem;
@@ -11199,6 +11205,7 @@ header.masthead .masthead-heading {
     padding: 0 30px 20px 20px;
     text-align: left;
   }
+
 }
 @media (min-width: 992px) {
   .timeline > li {
@@ -11318,6 +11325,31 @@ section#contact form#contactForm :-ms-input-placeholder {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+@media (max-width: 768px) {
+  .footer {
+      flex-direction: column;
+  }
+
+  .footer-content {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .footer-social, .footer-business {
+    text-align: left;
+    margin: 10px 0;
+}
+
+.footer-social a, .footer-business p {
+    margin-right: 0;
+    margin-bottom: 5px; /* Spacing between links and paragraphs */
+}
+
+
+  .scrollToTop {
+      display: block; /* Show the button on smaller screens */
+  }
+}
 
 .hr_news{
   width: 100%;
@@ -11347,12 +11379,11 @@ section#contact form#contactForm :-ms-input-placeholder {
 }
 
 .slider-container{
-  
+  padding-bottom: 3.5%;
 }
 
-.today-highlight-section{
-  margin-bottom: 6%;
-  margin-left: 13%;
+#today-highlight{
+  padding-bottom: 3.5%;
 }
 
 .news_bottom_section{
@@ -11360,7 +11391,7 @@ section#contact form#contactForm :-ms-input-placeholder {
 }
 
 .infografis{
-  margin-left: 13%;  
+
 }
 
 .reportar-image{
@@ -11448,26 +11479,24 @@ section#contact form#contactForm :-ms-input-placeholder {
   text-align: center;
 }
 .how-img img{
-  width: 100%;
-  margin-left: 25px;
-  margin-right: 25px;
+  width: 90%;
   border-radius: 10px;
 }
 
-.h3_client{
-  color: white;
-}
+@media (max-width: 768px) {
+  .text-muted {
+      text-align: center; /* Centers the text */
+      padding-left: 20px; /* Adds equal padding on the left */
+      padding-right: 20px; /* Adds equal padding on the right */
+  }
 
-.h6_client{
-  color: #666666;
+  .how-img {
+    padding-top: 1rem;
+  }
 }
 
 .client-content{
   margin-top: 2%;
-}
-
-.p_client_content {
-  color: white;
 }
 
 .form-container {
@@ -11595,8 +11624,18 @@ button {
   margin-bottom: 12px;
 }
 
+#search_bar{
+  margin: 0;
+  padding: 0;
+  right: 0;
+}
+
+#navbar_container{
+  padding-right: 0;
+}
+
 .infografis_news_detail{
-  margin-top: 11px;
+  padding-bottom: 1rem;
 }
 
 .error_page{
@@ -11604,8 +11643,13 @@ button {
   margin-bottom: 345px;
 }
 
-.all_news, .team_container, .client_container{
+.all_news, .team_container{
   margin-top: 10%;
+}
+
+.client_container{
+  margin-top: 7.5%;
+  margin-bottom: 10.7%;
 }
 
 .title-all-news{
@@ -11642,4 +11686,49 @@ button {
 
 #showImage_infographic {
   border-radius: 10px;
+}
+
+#consult_button{
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10.5%;
+  padding-top: 2%;
+}
+
+.footer-social {
+  display: flex;   /* Ensures that flexbox is being used */
+  flex-direction: column; /* Explicitly sets the flex items to line up in a row */
+  justify-content: flex-start; /* Aligns items to the start of the flex container */
+  align-items: center; /* Aligns items vertically in the center */
+  gap: 10px; /* Provides some space between each icon */
+}
+
+
+.footer-social a {
+  margin: 0 10px; /* Adjust spacing around icons */
+  color: inherit; /* Inherits color from parent, or choose your own */
+  font-size: 24px; /* Adjust icon size */
+}
+
+.footer-social a:hover {
+  color: #ddd; /* Change color on hover, optional */
+}
+
+@media (max-width: 768px) {
+  .button-container {
+      display: flex;
+      justify-content: center; /* Aligns children (button) to the center horizontally */
+      width: 100%; /* Takes full width to allow centering */
+  }
+
+  #consult_button {
+      flex: 0 0 auto; /* Allows the button to maintain its size without stretching */
+      padding-left: 0; /* Resets any left padding that may affect centering */
+      padding-right: 0; /* Resets any right padding that may affect centering */
+      justify-content: center;
+  }
+}
+
+#client_box{
+  padding-left: 0;
 }

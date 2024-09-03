@@ -14,10 +14,10 @@
                                 <div class="page-title-box">
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                           <li class="breadcrumb-item active">Add News Post</li>
+                                           <li class="breadcrumb-item active">Tambah Berita</li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">Add News Post</h4>
+                                    <h4 class="page-title">Tambah Berita</h4>
                                 </div>
                             </div>
                         </div>     
@@ -31,20 +31,20 @@
                                         <form id="myForm" method="post" action="{{ route('store.news.post') }}" enctype="multipart/form-data">
                                             @csrf
 
-                                            <div class="row">
+                                            <!--<div class="row">
                                                 <div class="form-group col-md-6 mb-3">
-                                                    <label for="inputEmail4" class="form-label">Category</label>
+                                                    <label for="inputEmail4" class="form-label">Kategori</label>
                                                     <select name="category_id" class="form-select" id="example-select">
-                                                            <option>Select Category</option>
+                                                            <option>Pilih Kategori</option>
                                                             @foreach($categories as $category)
                                                             <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                                                             @endforeach
                                                     </select>
 
                                                 </div>
-                                            </div>
+                                            </div> -->
 
-                                            <div class="row">
+                                            <!--<div class="row">
                                                 <div class="form-group col-md-6 mb-3">
                                                     <label for="inputEmail4" class="form-label">Subcategory</label>
                                                     <select name="subcategory_id" class="form-select" id="example-select">
@@ -52,13 +52,13 @@
                                                             
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div> -->
 
                                             <div class="row">
                                                 <div class="form-group col-md-6 mb-3">
-                                                    <label for="inputEmail4" class="form-label">Writer</label>
+                                                    <label for="inputEmail4" class="form-label">Penulis</label>
                                                     <select name="user_id" class="form-select" id="example-select">
-                                                            <option>Select Writer</option>
+                                                            <option>Pilih Penulis</option>
                                                             @foreach($adminuser as $user)
                                                             <option value="{{ $user->id }}">{{ $user->name }}</option>
                                                             @endforeach
@@ -68,14 +68,14 @@
 
                                             <div class="row">
                                                 <div class="form-group col-md-6 mb-3">
-                                                    <label for="inputEmail4" class="form-label">Title</label>
+                                                    <label for="inputEmail4" class="form-label">Judul</label>
                                                     <input type="text" name="news_title" class="form-control" id="inputEmail4">
                                                 </div>
                                             </div>
                                             
                                             <div class="row">
                                                 <div class="form-group col-md-6 mb-3">
-                                                    <label for="inputGroupFile04" class="form-label">News Image</label>
+                                                    <label for="inputGroupFile04" class="form-label">Gambar Berita</label>
                                                     <input class="form-control" type="file" name="image" id="image">
                                                 </div>
                                             </div>
@@ -89,18 +89,18 @@
 
                                             <div class="row">
                                                 <div class="col-12 mb-3">
-                                                    <label for="inputEmail4" class="form-label">Article</label>
+                                                    <label for="inputEmail4" class="form-label">Artikel</label>
                                                     
                                                     <textarea id="default" name="news_details"></textarea>
                                                 </div>
                                             </div>
 
-                                            <div class="row">
+                                            <!--<div class="row">
                                                 <div class="form-group col-md-6 mb-3">
                                                     <label for="inputEmail4" class="form-label">Tags</label>
                                                     <input type="text" name="tags" class="selectize-close-btn">
                                                 </div>
-                                            </div>
+                                            </div> -->
 
                                             <div class="row">
                                                 <div class="col-lg-6">
@@ -111,24 +111,17 @@
 
                                                     <div class="form-check mb-2 form-check-primary">
                                                         <input class="form-check-input" type="checkbox" value="1" name="top_slider" id="customckeck2">
-                                                        <label class="form-check-label" for="customckeck2">Top Slider</label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-6">
-                                                    <div class="form-check mb-2 form-check-primary">
-                                                        <input class="form-check-input" type="checkbox" value="1" name="first_section_three" id="customckeck3">
-                                                        <label class="form-check-label" for="customckeck3">First Section Three</label>
+                                                        <label class="form-check-label" for="customckeck2">Slider</label>
                                                     </div>
 
                                                     <div class="form-check mb-2 form-check-primary">
                                                         <input class="form-check-input" type="checkbox" value="1" name="first_section_nine" id="customckeck4">
-                                                        <label class="form-check-label" for="customckeck4">First Section Nine</label>
+                                                        <label class="form-check-label" for="customckeck4">4 Berita Awal</label>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <button type="submit" class="btn btn-primary waves-effect waves-light">Save Changes</button>
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light">Simpan</button>
 
                                         </form>
 
@@ -185,7 +178,7 @@
 
 
 </script>
-
+<!--
 <script type="text/javascript">
     $(document).ready(function(){
         $('select[name="category_id"]').on('change', function(){
@@ -209,6 +202,6 @@
         });
     });
 
-</script>
+</script> -->
 
 @endsection

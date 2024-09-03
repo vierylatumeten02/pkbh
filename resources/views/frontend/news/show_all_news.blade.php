@@ -22,7 +22,7 @@ Semua Berita | PKBH UNHAS
 </h2>
 <div class="related-meta">
 <a href=" "><i class="la la-calendar"> </i>
-{{ $newsitem->created_at->format('d M Y') }}</a>
+{{ $newsitem->created_at->translatedFormat('d F Y') }}</a>
 </div>
 </div>
 </div>
